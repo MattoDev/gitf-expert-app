@@ -15,7 +15,7 @@ export const GiftExpertApp = () => {
     <>
       <h1>GiftExpertApp</h1>
 
-      <AddCategory />
+      <AddCategory setCategories={setCategories} />
 
       <button onClick={onAddCategory}>Add</button>
 
