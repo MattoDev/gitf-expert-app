@@ -5,10 +5,16 @@ export const GiftExpertApp = () => {
   // No debo poner condicionalmente mis hooks
   const [categories, setCategories] = useState(["One Punch", "Dragon Ball"]);
 
+  const onAddCategory = () => {
+    setCategories((current) => [...current, "Valorant"]);
+  };
+
   console.log(categories);
   return (
     <>
       <h1>GiftExpertApp</h1>
+
+      <button onClick={onAddCategory}>Add</button>
 
       <ol>
         {categories.map((category) => {
