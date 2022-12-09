@@ -6,8 +6,8 @@ export const GiftExpertApp = () => {
   // No debo poner condicionalmente mis hooks
   const [categories, setCategories] = useState(["One Punch", "Dragon Ball"]);
 
-  const onAddCategory = () => {
-    setCategories((current) => [...current, "Valorant"]);
+  const onAddCategory = (newCategory) => {
+    setCategories((current) => [...current, newCategory]);
   };
 
   console.log(categories);
@@ -15,7 +15,10 @@ export const GiftExpertApp = () => {
     <>
       <h1>GiftExpertApp</h1>
 
-      <AddCategory setCategories={setCategories} />
+      <AddCategory
+        //setCategories={setCategories}
+        onNewCategory={(value) => onAddCategory(value)}
+      />
 
       <button onClick={onAddCategory}>Add</button>
 
