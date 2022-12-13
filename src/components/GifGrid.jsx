@@ -1,7 +1,11 @@
+import { useEffect } from "react";
 import { getGifs } from "../helpers/getGifs";
 
 export const GifGrid = ({ category }) => {
-  getGifs(category);
+  // el useEffect es un kook de React que sirve para ejecutar efectos secundarios(proceso que quiera ejecutar cuando algo suceda)
+  useEffect(() => {
+    getGifs(category);
+  }, []);
 
   return (
     <>
