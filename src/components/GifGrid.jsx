@@ -1,16 +1,27 @@
-import { useEffect } from "react";
+import { useEffect, useState } from "react";
 import { getGifs } from "../helpers/getGifs";
 
 export const GifGrid = ({ category }) => {
-  // el useEffect es un kook de React que sirve para ejecutar efectos secundarios(proceso que quiera ejecutar cuando algo suceda)
+  const [images, setImages] = useState([]);
+  // el useEffect es un hook de React que sirve para ejecutar efectos secundarios(proceso que quiera ejecutar cuando algo suceda)
+
+  const getImages = async () => {
+    const newImages = await getGifs(category);
+    setImages(newImages);
+  };
+
   useEffect(() => {
-    getGifs(category);
+    getImages();
   }, []);
 
   return (
     <>
       <h3>{category}</h3>
-      <p>Hola Mundo</p>
+      <ol>
+        {images.map(({ id, title }) => (
+          <li key={id}>{title}</li>
+        ))}
+      </ol>
     </>
   );
 };
